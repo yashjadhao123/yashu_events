@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yash Events</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+margin:0;
+padding:0;
+}
+
+header{
+background:#222;
+color:white;
+display:flex;
+justify-content:space-between;
+padding:15px 40px;
+}
+
+nav a{
+color:white;
+margin:10px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.hero{
+text-align:center;
+padding:100px 20px;
+background:linear-gradient(to right,#ff7e5f,#feb47b);
+color:white;
+}
+
+.hero button{
+padding:12px 25px;
+font-size:16px;
+background:black;
+color:white;
+border:none;
+cursor:pointer;
+border-radius:5px;
+}
+
+section{
+padding:60px 20px;
+text-align:center;
+}
+
+.cards{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.card{
+background:#f4f4f4;
+padding:20px;
+width:250px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.gallery{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.gallery img{
+width:300px;
+border-radius:10px;
+}
+
+footer{
+background:#222;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>Yash Events</h2>
+
+<nav>
+<a href="#">Home</a>
+<a href="#services">Services</a>
+<a href="#gallery">Gallery</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<div class="hero">
+<h1>Welcome to Yash Events</h1>
+<p>Wedding | Birthday | Corporate Event Management</p>
+<button onclick="bookEvent()">Book Event</button>
+</div>
+
+<section id="services">
+
+<h2>Our Services</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Wedding Planning</h3>
+<p>Complete wedding event planning and decoration.</p>
+</div>
+
+<div class="card">
+<h3>Birthday Parties</h3>
+<p>Fun birthday parties with themes and decorations.</p>
+</div>
+
+<div class="card">
+<h3>Corporate Events</h3>
+<p>Professional corporate event organization.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="gallery">
+
+<h2>Event Gallery</h2>
+
+<div class="gallery">
+<img src="https://picsum.photos/300/200?1">
+<img src="https://picsum.photos/300/200?2">
+<img src="https://picsum.photos/300/200?3">
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2>Contact Us</h2>
+<p>Email: yash.events@email.com</p>
+<p>Phone: +91 9876543210</p>
+
+</section>
+
+<footer>
+<p>© 2026 Yash Events | All Rights Reserved</p>
+</footer>
+
+<script>
+
+function bookEvent(){
+alert("Thank you for choosing Yash Events! Our team will contact you soon.");
+}
+
+</script>
+
+</body>
+</html>
