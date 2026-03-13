@@ -3,85 +3,218 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yash Events</title>
+<title>Yash Jadhao Timber Mart</title>
 
 <style>
 
-body{
-font-family: Arial, sans-serif;
+*{
 margin:0;
 padding:0;
+box-sizing:border-box;
+font-family:Segoe UI, sans-serif;
 }
 
-header{
-background:#222;
+body{
+background:#121212;
 color:white;
+scroll-behavior:smooth;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
 display:flex;
 justify-content:space-between;
-padding:15px 40px;
+align-items:center;
+padding:15px 8%;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(8px);
+z-index:100;
 }
 
-nav a{
-color:white;
-margin:10px;
-text-decoration:none;
-font-weight:bold;
+nav h2{
+color:#f4a261;
 }
+
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+nav li{
+cursor:pointer;
+transition:.3s;
+}
+
+nav li:hover{
+color:#f4a261;
+}
+
+/* HERO */
 
 .hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
 text-align:center;
-padding:100px 20px;
-background:linear-gradient(to right,#ff7e5f,#feb47b);
-color:white;
+background:linear-gradient(120deg,#5a3e2b,#2f1b12,#7f5539);
+background-size:300% 300%;
+animation:bgmove 10s infinite alternate;
+}
+
+@keyframes bgmove{
+0%{background-position:left;}
+100%{background-position:right;}
+}
+
+.hero h1{
+font-size:55px;
+}
+
+.hero p{
+margin-top:10px;
+opacity:.8;
 }
 
 .hero button{
-padding:12px 25px;
-font-size:16px;
-background:black;
-color:white;
+margin-top:20px;
+padding:12px 30px;
 border:none;
+border-radius:30px;
+background:#f4a261;
 cursor:pointer;
-border-radius:5px;
+font-weight:bold;
 }
 
-section{
-padding:60px 20px;
+/* SECTION */
+
+.section{
+padding:100px 8%;
 text-align:center;
 }
 
+.section h2{
+margin-bottom:40px;
+font-size:35px;
+color:#f4a261;
+}
+
+/* PRODUCTS */
+
 .cards{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
 }
 
 .card{
-background:#f4f4f4;
+background:#1d1d1d;
+border-radius:15px;
 padding:20px;
-width:250px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
+transition:.3s;
 }
 
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+.card img{
+width:100%;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+/* GALLERY */
+
 .gallery{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
 }
 
 .gallery img{
-width:300px;
+width:100%;
+border-radius:10px;
+cursor:pointer;
+transition:.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+/* LIGHTBOX */
+
+.lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:none;
+justify-content:center;
+align-items:center;
+}
+
+.lightbox img{
+max-width:80%;
 border-radius:10px;
 }
 
+/* CONTACT */
+
+.contact-btn{
+padding:15px 35px;
+border:none;
+border-radius:30px;
+background:#f4a261;
+cursor:pointer;
+}
+
+.popup{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) scale(0);
+background:#1d1d1d;
+padding:30px;
+border-radius:15px;
+width:300px;
+transition:.3s;
+}
+
+.popup.active{
+transform:translate(-50%,-50%) scale(1);
+}
+
+.popup input,.popup textarea{
+width:100%;
+padding:10px;
+margin-top:10px;
+border:none;
+border-radius:8px;
+}
+
+.popup button{
+margin-top:10px;
+width:100%;
+padding:10px;
+border:none;
+border-radius:8px;
+background:#f4a261;
+}
+
 footer{
-background:#222;
-color:white;
-padding:20px;
 text-align:center;
+padding:30px;
+opacity:.6;
 }
 
 </style>
@@ -89,76 +222,129 @@ text-align:center;
 
 <body>
 
-<header>
-<h2>Yash Events</h2>
-
 <nav>
-<a href="#">Home</a>
-<a href="#services">Services</a>
-<a href="#gallery">Gallery</a>
-<a href="#contact">Contact</a>
+<h2>Yash Jadhao Timber Mart</h2>
+
+<ul>
+<li onclick="scrollToSection('home')">Home</li>
+<li onclick="scrollToSection('products')">Products</li>
+<li onclick="scrollToSection('gallery')">Gallery</li>
+<li onclick="scrollToSection('contact')">Contact</li>
+</ul>
 </nav>
-</header>
 
-<div class="hero">
-<h1>Welcome to Yjadhav events </h1>
-<p>Wedding | Birthday | Corporate Event Management</p>
-<button onclick="bookEvent()">Book Event</button>
+<section class="hero" id="home">
+<div>
+<h1>Yash Jadhao Timber Mart</h1>
+<p>Premium Quality Wood & Timber Supplier</p>
+<button onclick="scrollToSection('products')">View Products</button>
 </div>
+</section>
 
-<section id="services">
-
-<h2>Our Services</h2>
+<section class="section" id="products">
+<h2>Our Timber Products</h2>
 
 <div class="cards">
 
 <div class="card">
-<h3>Wedding Planning</h3>
-<p>Complete wedding event planning and decoration.</p>
+<img src="https://picsum.photos/300/200?wood1">
+<h3>Teak Wood</h3>
+<p>High quality teak wood for furniture and construction.</p>
 </div>
 
 <div class="card">
-<h3>Birthday Parties</h3>
-<p>Fun birthday parties with themes and decorations.</p>
+<img src="https://picsum.photos/300/200?wood2">
+<h3>Plywood Sheets</h3>
+<p>Durable plywood sheets for interiors and carpentry.</p>
 </div>
 
 <div class="card">
-<h3>Corporate Events</h3>
-<p>Professional corporate event organization.</p>
+<img src="https://picsum.photos/300/200?wood3">
+<h3>Hardwood</h3>
+<p>Strong hardwood materials for building projects.</p>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/300/200?wood4">
+<h3>Wood Boards</h3>
+<p>Premium boards for furniture and decorative work.</p>
 </div>
 
 </div>
-
 </section>
 
-<section id="gallery">
+<section class="section" id="gallery">
 
-<h2>Event Gallery</h2>
+<h2>Wood Gallery</h2>
 
 <div class="gallery">
-<img src="https://picsum.photos/300/200?1">
-<img src="https://picsum.photos/300/200?2">
-<img src="https://picsum.photos/300/200?3">
+<img src="https://picsum.photos/400/300?wood5">
+<img src="https://picsum.photos/400/300?wood6">
+<img src="https://picsum.photos/400/300?wood7">
+<img src="https://picsum.photos/400/300?wood8">
+<img src="https://picsum.photos/400/300?wood9">
+<img src="https://picsum.photos/400/300?wood10">
 </div>
 
 </section>
 
-<section id="contact">
+<section class="section" id="contact">
 
 <h2>Contact Us</h2>
-<p>Email: yash.events@email.com</p>
-<p>Phone: +91 9876543210</p>
+
+<button class="contact-btn" onclick="openPopup()">Order Timber</button>
 
 </section>
 
 <footer>
-<p>© 2026 Yash Events | All Rights Reserved</p>
+© 2026 Yash Jadhao Timber Mart
 </footer>
+
+<div class="lightbox" id="lightbox">
+<img src="">
+</div>
+
+<div class="popup" id="popup">
+<h3>Order Timber</h3>
+<input type="text" placeholder="Name">
+<input type="email" placeholder="Email">
+<textarea placeholder="Timber Requirement"></textarea>
+<button onclick="closePopup()">Submit</button>
+</div>
 
 <script>
 
-function bookEvent(){
-alert("Thank you for choosing Yash Events! Our team will contact you soon.");
+/* SMOOTH SCROLL */
+
+function scrollToSection(id){
+document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+/* GALLERY LIGHTBOX */
+
+const gallery=document.querySelectorAll(".gallery img");
+const lightbox=document.getElementById("lightbox");
+const lightboxImg=lightbox.querySelector("img");
+
+gallery.forEach(img=>{
+img.onclick=()=>{
+lightbox.style.display="flex";
+lightboxImg.src=img.src;
+}
+});
+
+lightbox.onclick=()=>{
+lightbox.style.display="none";
+}
+
+/* POPUP */
+
+function openPopup(){
+document.getElementById("popup").classList.add("active");
+}
+
+function closePopup(){
+document.getElementById("popup").classList.remove("active");
 }
 
 </script>
